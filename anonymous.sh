@@ -8,7 +8,7 @@ MODE="dummy"
 USAGE="offline"
 FAKE_HOSTNAME="$(date +%s|md5sum|head -c 10)"
 OLD_FAKE_HOSTNAME="/tmp/OLD_FAKE_HOSTNAME"
-TRUE_HOSTNAME="thor"
+TRUE_HOSTNAME="real_hostname"
 #FORMER_HOST="$(cat former_host)"
 
 # Get Options:
@@ -90,7 +90,7 @@ hostname()
 			sed -i "s/$(cat $OLD_FAKE_HOSTNAME)/$TRUE_HOSTNAME/g" /etc/hosts
 			rm $OLD_FAKE_HOSTNAME
 		else
-			echo "Old hostname yould not be found. Correct manually!"
+			echo "Old hostname could not be found. Correct manually!"
 		fi
 	fi
 }
